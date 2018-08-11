@@ -1,0 +1,9 @@
+*.zip
+*.mp3
+*.m4a
+
+# 1、以”#”开头的是注释
+# 2、filename //忽略掉filename 这个文件名的文件
+# 3、*.txt //忽略掉所有的txt文件
+# 4、!filename //filename文件名的文件不能忽略
+# 5、Documents/ //忽略掉Documents文件夹下所有文件。这个就是我想要的 :-)。

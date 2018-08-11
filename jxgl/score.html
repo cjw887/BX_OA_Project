@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				/*overflow: hidden;*/
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.filtrate {
+				width: 100%;
+				margin: 20px auto;
+			}
+			
+			#main1 {
+				width: 80%;
+				margin: 20px auto 0;
+				/*overflow-y: scroll;*/
+			}
+			
+			button i {
+				margin: 0 10px;
+			}
+			
+			.layui-table,
+			.layui-table-view {
+				margin: 0;
+			}
+			
+			.layui-table tbody tr:hover {
+				background-color: transparent
+			}
+			
+			.totle {
+				height: 50px;
+				border: 1px solid #ddd;
+			}
+			
+			.totle span {
+				line-height: 50px;
+				float: right;
+				margin-right: 20px;
+			}
+			
+			.btn {
+				width: 26%;
+				margin: 20px auto 0;
+			}
+			.red{
+				color:red
+			}
+			.blue{
+				color:#1E9FFF;
+			}
+			.tip1{
+				text-align: center;
+			    margin-top: 10px;
+    			font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>评分
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont">
+				<div class="layui-form filtrate">
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">部门</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">部门1</option>
+								<option value="1">部门1</option>
+								<option value="2">部门1</option>
+								<option value="3">部门1</option>
+								<option value="4">部门1</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">姓名</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">李XX</option>
+								<option value="1">李XX</option>
+								<option value="2">李XX</option>
+								<option value="3">李XX</option>
+								<option value="4">李XX</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">时间</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="time1">
+						</div>
+					</div>
+
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal" style="margin-bottom: 15px;margin-right: 70px;float: right;"><i class="iconfont icon-shousuo1"></i>搜索</button>
+				</div>
+
+				<div id="main1" class="layui-form">
+					<table id="my-table" lay-filter="test" class="layui-table">
+						<colgroup>
+							<col width="150">
+							<col width="150">
+							<col width="200">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>姓名</th>
+								<th>月份</th>
+								<th>一级指标</th>
+								<th>二级指标</th>
+								<th>三级指标</th>
+								<th>评分标准</th>
+								<th>得分</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="12">李某某</td>
+								<td rowspan="12"> 4月</td>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="优（4分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="良（3分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="中（2分）" lay-skin="primary" checked></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="差（0-1分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="优（4分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="良（3分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="中（2分）" lay-skin="primary" checked></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="差（0-1分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td rowspan="4">德（8分）</td>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="优（4分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="良（3分）" lay-skin="primary"></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="中（2分）" lay-skin="primary" checked></td>
+							</tr>
+							<tr>
+								<td>理论素养高</td>
+								<td><input type="checkbox" name="" title="差（0-1分）" lay-skin="primary"></td>
+							</tr>
+						</tbody>
+
+					</table>
+					<div class="totle"><span class="totle-fen">90分</span><span>总计：</span></div>
+				</div>
+				<div class="btn">
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal BC" style="margin-bottom: 15px;margin-left: 45px;">保存</button>
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal BACK" style="margin-bottom: 15px;margin-left: 45px;background: #c2c2c2;">返回</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate = layui.laydate;
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#time1' //指定元素
+			});
+//			if($(window).height() < 800) {
+//				$("#main1").css({"overflow-y":"scroll","height":"400px"})
+//			}
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+//			$("#main1").css({
+//				"height": $(window).height() - $(".filtrate").height() - 250 + "px"
+//			});
+			form.render();
+			$(".BC").click(function(){
+				layer.confirm('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您给XX打出的分数为<span class="red">'+$(".totle-fen").html()+'</span>,该分数超过<span class="red">95分</span>的指导分数，该分数超上月分数<span class="red">20%</span>。<br /><p class="blue tip1">是否确认此分数？<p>', 
+				{
+					btn: ['是', '否'], //按钮
+					title: ['提示', 'font-size:18px;background:#1E9FFF;color:#fff;']
+				}, function() {
+					layer.msg('保存成功');
+				}, function() {
+					layer.msg('请重新打分');
+				});
+			})
+			
+			$(window).resize(function() {});
+		});
+	</script>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>任务完成记录</title>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				overflow: hidden;
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.my-cont .btn {
+				width: 180px;
+				height: 30px;
+				border-radius: 15px;
+				background: #e8e8e8;
+				color: #747474;
+				margin: 20px auto;
+			}
+			
+			.my-cont .btn li {
+				width: 90px;
+				height: 30px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				color: #666;
+			}
+			
+			.my-cont .btn li.on {
+				color: #ffffff;
+				border-radius: 15px;
+				background: #1a94d8;
+			}
+			
+			.filtrate {
+				width: 66%;
+				margin: 40px auto;
+			}
+			
+			#main1 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+			}
+			
+			#main2 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+				display: none;
+			}
+			
+			button i {
+				margin: 0 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>任务完成记录
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont">
+				<ul class="btn">
+					<li class="btn1  on">计划</li>
+					<li class="btn2">任务</li>
+				</ul>
+				
+				<div id="main1">
+					<a href="rwwcjl_add1.html"><button class="layui-btn layui-btn-sm layui-btn-radius"><i class="layui-icon">&#xe654;</i>新增</button></a>
+					<table class="layui-table">
+						<colgroup>
+						    <col width="150">
+						    <col width="200">
+						    <col>
+						</colgroup>
+						<thead>
+						    <tr>
+						      <th></th>
+						      <th>计划名称</th>
+						      <th>已进行时间</th>
+						      <th>完成时限</th>
+						      <th>状态</th>									
+						      <th>操作</th>
+						    </tr> 
+						</thead>
+						<tbody>
+						    <tr>
+						       <td>1</td>
+						       <td>名称1</td>
+						       <td>6小时</td>
+						       <td>2018-07-20</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>2</td>
+						       <td>名称1</td>
+						       <td>6小时</td>
+						       <td>2018-07-20</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>3</td>
+						       <td>名称1</td>
+						       <td>6小时</td>
+						       <td>2018-07-20</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>4</td>
+						       <td>名称1</td>
+						       <td>6小时</td>
+						       <td>2018-07-20</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>5</td>
+						       <td>名称1</td>
+						       <td>6小时</td>
+						       <td>2018-07-20</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="main2">
+					<a href="rwwcjl_add2.html"><button class="layui-btn layui-btn-sm layui-btn-radius"><i class="layui-icon">&#xe654;</i>新增</button></a>
+					<table class="layui-table">
+						<colgroup>
+						    <col width="150">
+						    <col width="200">
+						    <col>
+						</colgroup>
+						<thead>
+						    <tr>
+						      <th></th>
+						      <th>计划名称</th>
+						      <th>已进行时间</th>
+						      <th>完成时限</th>
+						      <th>状态</th>									
+						      <th>操作</th>
+						    </tr> 
+						</thead>
+						<tbody>
+						    <tr>
+						       <td>1</td>
+						       <td>名称2</td>
+						       <td>16小时</td>
+						       <td>2018-07-10</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>2</td>
+						       <td>名称2</td>
+						       <td>16小时</td>
+						       <td>2018-07-10</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>3</td>
+						       <td>名称2</td>
+						       <td>16小时</td>
+						       <td>2018-07-10</td>
+						       <td>待完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>4</td>
+						       <td>名称2</td>
+						       <td>16小时</td>
+						       <td>2018-07-10</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						    <tr>
+						       <td>5</td>
+						       <td>名称2</td>
+						       <td>16小时</td>
+						       <td>2018-07-10</td>
+						       <td>已完成</td>
+						       <td>查看</td>
+						    </tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#time1' //指定元素
+			});
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+			$("#main1").css({
+				"height": $(window).height() -$(".filtrate").height()- 270 + "px"
+			});
+			$("#main2").css({
+				"height": $(window).height() -$(".filtrate").height()- 270 + "px"
+			});
+			form.render();
+			
+			
+
+			$(".btn").on("click", "li", function() {
+				$(this).addClass("on").siblings().removeClass("on");
+				if($(this).html() == "计划") {
+					$("#main1").show();
+					$("#main2").hide();
+				}
+				if($(this).html() == "任务") {
+					$("#main1").hide();
+					$("#main2").show();
+					
+				}
+			});
+
+		});
+	</script>
+
+</html>

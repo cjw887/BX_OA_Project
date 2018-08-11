@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {margin: 0;padding: 0;}			
+			body,html {width:100%;height: 100%;}
+			.all{width:100%;height: 100%;}
+			.all .top{width: 100%;height:90px;background: url(img/bannerwork.png);}
+			.all .main{width: 100%;height: auto;}
+			.all .main .left{width:11.1%;height: 100%;float: left;}
+			.all .main .right{width: 88.8%;height: 100%;float: left;}
+			.leftmenu{width:150px;padding-bottom: 9999px;margin-bottom: -9999px; overflow:hidden; background:url(img/left_bg.png) repeat;}
+			.leftmenu dd{line-height:35px;font-size:14px;/*border-right:solid 16px #ebf3f6;*/}
+			.leftmenu dd span{float:left;/*margin:10px 8px 0 12px;*/ margin-left:10px; margin-right:5px;}
+			.leftmenu dd .menuson{display:none;}
+			.leftmenu dd:first-child .menuson{display:block;}
+			
+			.menuson {line-height:35px; font-weight:normal; }
+			.menuson li{cursor:pointer;width:150px;text-align: left; font-size: 13px; list-style:none;height:40px;line-height:40px;background:url(img/left_line.png) no-repeat bottom;}
+			.menuson li i{margin-left:20px; margin-right: 5px;}
+			/*.menuson li.active{position:relative; line-height:40px;/*background:url(../images/libg.png);color:#fff;}*/
+			/*.menuson li cite{display:block; float:left; margin-left:32px; background:url(../images/list.gif) no-repeat; width:16px; height:16px; margin-top:7px;}*/
+			/*.menuson li.active cite{background:url(../images/list2.gif) no-repeat;}*/
+			/*.menuson li.active i{display:block; background:url(../images/sj.png) no-repeat; width:6px; height:11px; position:absolute; right:0;z-index:10000; top:9px; right:-1px;}
+			*/
+			.menuson li a{ display:block; *display:inline; *padding-top:5px; color:#fff;text-decoration: none;}
+			.menuson li.active  {color:#fff; width:150px;height:40px;line-height:40px;background:url(img/left_jiantou.png);}
+			.title{cursor:pointer;text-align: left;margin-bottom: 2px; background:url(img/left_bg2.png) repeat-x;color:#fff; width:150px;}
+			.title i{margin-left:20px; margin-right: 5px;}
+			.title a{text-decoration: none; color: #fff;}
+			#active1{background:url(img/left_bg6.png);font-weight: bold; color:#fff; }
+			/*#active  {color:#fff; width:150px;height:40px;line-height:40px;background:url(img/left_jiantou.png);}*/
+			#right{}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="top"></div>
+			<div class="main">
+				<div class="left">
+					<dl class="leftmenu">
+				        <dd>
+				            <div class="title" id="active1" style="text-align: center;">
+				            	<a href="all.html">绩效管理</a>
+				            </div>
+				        </dd>
+				        <dd>
+				            <div class="title">
+				            	<i class="iconfont icon-renwu"></i>任务与计划管理
+				            </div>
+				        	<ul class="menuson">
+				                <li id="active"><a href="gzjh.html" target="right"><i class="iconfont icon-jihua"></i>工作计划</a></li>
+				                <li><a href="rwpf.html" target="right"><i class="iconfont icon-paifa"></i>任务派发</a></li>
+				                <li><a href="rwwcjl.html" target="right"><i class="iconfont icon-gangbi"></i>任务完成记录</a></li>
+				                <li><a href="rwwctj.html" target="right"><i class="iconfont icon-tongji"></i>任务完成统计</a></li>
+				                <li><a href="ydxj.html" target="right"><i class="iconfont icon-yue"></i>月度小结</a></li>
+				                <li><a href="jdzj.html" target="right"><i class="iconfont icon-ji"></i>季度总结</a></li>
+				            </ul>     
+				        </dd> 
+				        <dd>
+				            <div class="title">
+				            	<i class="iconfont icon-kaohepingfen"></i>绩效指标考核
+				            </div>
+				        	<ul class="menuson">
+				        		<li><a href="score-index.html" target="right"><i class="iconfont icon-kaohe"></i>考核指标维护</a></li>
+				                <li><a href="score-frame.html" target="right"><i class="iconfont icon-ren"></i>打分者维护</a></li>
+				                <li><a href="score.html" target="right"><i class="iconfont icon-GroupCopy"></i>评分</a></li>
+				                <li><a href="score-rank.html" target="right"><i class="iconfont icon-paiming"></i>分数排名与统计</a></li>
+				            </ul>     
+				        </dd> 
+				    </dl>
+				</div>
+				<div class="right">
+					<iframe id="right" name="right" width="100%" height="auto" src="index.html" frameborder="0"></iframe>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+			
+		<script type="text/javascript">
+		$(function(){	
+			//导航切换
+			$(".menuson li").click(function(){
+				$(".menuson li.active").removeClass("active")
+				$(this).addClass("active");
+			});
+			
+			$(".title").click(function(){
+				$(".title#active1").removeAttr("id");
+				$(this).attr("id","active1");
+				var $ul = $(this).next('ul');
+				$('dd').find('ul').slideUp();
+				if($ul.is(':visible')){
+					$(this).next('ul').slideUp();
+				}else{
+					$(this).next('ul').slideDown();
+				}
+			});
+		})	
+		</script>
+		<script>
+		// 自适应高度
+		var Heigght=0;
+		if(screen.width==1366){
+		    $("#right").css("height","530px");
+		    Heigght=510;
+		}else if(screen.width == 1920){
+		    $("#right").css("height","840px");
+		    Heigght=820;
+		}else if(1366<screen.width<1910){
+		    $("#right").css("height","720px");
+		    Heigght=700;
+		};
+    </script>
+	</body>
+</html>

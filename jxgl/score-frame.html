@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_mcfb9xwtkt.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				/*overflow: hidden;*/
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.red{
+				color:red
+			}
+			.blue{
+				color:#1E9FFF;
+			}
+			node {  
+	  cursor: pointer;  
+	}  
+	  
+	.node circle {  
+	  fill: #fff;  
+	  stroke: #1E9FFF;  
+	  stroke-width: 1.5px;  
+	}  
+	  
+	.node text {  
+	  font: 14px sans-serif;  
+	}  
+	  
+	.link {  
+	  fill: none;  
+	  stroke: #1E9FFF;  
+	  stroke-width: 1.5px;  
+	}  
+	.my-cont svg{
+	  	width: 100%;
+	  	height: 100%;
+	}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>打分者维护
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont" id="my-cont">
+				
+			</div>
+				
+		</div>
+	</body>
+	<script type="text/javascript" src="js/d3.min.js" ></script>
+	
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate'], function() {
+			var $ = layui.jquery;
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+			$(window).resize(function() {});
+		});
+	</script>
+	<script type="text/javascript" src="js/myorg.js" ></script>
+
+</html>

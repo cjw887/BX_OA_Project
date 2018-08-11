@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>任务完成记录-新增</title>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				/*overflow: hidden;*/
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}						
+			
+			.my-cont {
+				width: 92%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+				margin-top: 64px;
+				padding: 2%;
+			}
+			.rwwcjl-xj{
+				width: 100%;
+				height: auto;
+				background: #f7f7f7;
+				padding-top: 50px;
+				padding-bottom: 2%;
+			}
+			.rwwcjl-xj .layui-item{
+				width: 30%;
+				margin-left: 5%;
+				margin-bottom: 20px;
+				float: left;								
+			}
+			.rwwcjl-xj .layui-item .layui-progress{width: 70%;margin-left: 38%;margin-top: 3%;}
+			.rwwcjl-xj .layui-input-block{
+				width: 70%;
+			}
+			.my-cont .btn {
+				width: 180px;
+				height: 30px;
+				border-radius: 15px;
+				background: #e8e8e8;
+				color: #747474;
+				margin: 20px auto;
+			}
+			
+			.my-cont .btn li {
+				width: 90px;
+				height: 30px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				color: #666;
+			}
+			
+			.my-cont .btn li.on {
+				color: #ffffff;
+				border-radius: 15px;
+				background: #1a94d8;
+			}
+			
+			.filtrate {
+				width: 66%;
+				margin: 40px auto;
+			}
+			
+			#main1 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+			}
+			
+			#main2 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+				display: none;
+			}
+			button i {
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>任务完成记录
+				</div>
+			</div>
+			
+			<div class="my-cont">
+				<div class="rwwcjl-xj">
+					<ul class="btn">
+						<li class="btn1  on">计划</li>
+						<li class="btn2">任务</li>
+					</ul>
+					<div id="main1">
+						<form class="layui-form" action="">
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">任务名称：</label>
+							    <div class="layui-input-block">
+							       <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input">
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">完成时间：</label>
+							    <div class="layui-input-block">
+							       <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input">
+							    </div>
+						    </div>						    
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">指定人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">科室：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">主办人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">协办人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">接收情况：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>		
+						    <div class="layui-item">
+							    <label class="layui-form-label">完成进度：</label>
+							    <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+								   <div class="layui-progress-bar layui-bg-green" lay-percent="40%"></div>
+								</div>
+						    </div>
+						    <div class="layui-item" style="margin-left: 15%; width: 80%;">
+							    <label class="layui-form-label">要求：</label>
+							    <div class="layui-input-block" >
+							      <textarea name="desc" class="layui-textarea"></textarea>
+							    </div>
+							</div>
+							<div class="layui-item" style="margin-left: 15%; width: 80%;">
+							    <label class="layui-form-label">内容：</label>
+							    <div class="layui-input-block" >
+							      <textarea name="desc" class="layui-textarea"></textarea>
+							    </div>
+							</div>
+						    <div class="layui-item" style="margin-left: 45%;margin-top: 5%;">
+							    <button class="layui-btn layui-btn-warm">暂存</button>
+							    <button class="layui-btn layui-btn-normal">保存并发送</button>
+							</div>
+							<div style="clear: both;"></div>
+						</form>
+					</div>
+					<div id="main2">
+						<form class="layui-form" action="">
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">任务名称：</label>
+							    <div class="layui-input-block">
+							       <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input">
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">完成时间：</label>
+							    <div class="layui-input-block">
+							       <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input">
+							    </div>
+						    </div>						    
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">主办人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">科室：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">指定人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item">
+							    <label class="layui-form-label">协办人：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>
+						    <div class="layui-item" style="margin-left: 15%;">
+							    <label class="layui-form-label">接收情况：</label>
+							    <div class="layui-input-block">
+							        <select name="zhouqi" lay-verify="required">
+								        <option value=""></option>
+								        
+							        </select>
+							    </div>
+						    </div>	
+						    <div class="layui-item">
+							    <label class="layui-form-label">完成进度：</label>
+							    <div class="layui-progress layui-progress-big" lay-showPercent="yes">
+								   <div class="layui-progress-bar layui-bg-green" lay-percent="30%"></div>
+								</div>
+						    </div>	
+						    <div class="layui-item" style="margin-left: 15%; width: 80%;">
+							    <label class="layui-form-label">要求：</label>
+							    <div class="layui-input-block" >
+							      <textarea name="desc" class="layui-textarea"></textarea>
+							    </div>
+							</div>
+							<div class="layui-item" style="margin-left: 15%; width: 80%;">
+							    <label class="layui-form-label">内容：</label>
+							    <div class="layui-input-block" >
+							      <textarea name="desc" class="layui-textarea"></textarea>
+							    </div>
+							</div>
+						    <div class="layui-item" style="margin-left: 45%;margin-top: 5%;">
+							    <button class="layui-btn layui-btn-warm">暂存</button>
+							    <button class="layui-btn layui-btn-normal">保存并发送</button>
+							</div>
+							<div style="clear: both;"></div>
+						</form>
+					</div>
+				</div>				
+			</div>
+		</div>	
+		
+		<script>			
+			layui.use(['jquery', 'form', 'table', 'laydate','element'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate = layui.laydate;
+			var element = layui.element;
+			
+			form.render();
+			element.render();
+			
+			  //监听提交
+			  form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			  });
+			});
+			
+			$(".btn").on("click", "li", function() {
+				$(this).addClass("on").siblings().removeClass("on");
+				if($(this).html() == "计划") {
+					$("#main1").show();
+					$("#main2").hide();
+				}
+				if($(this).html() == "任务") {
+					$("#main1").hide();
+					$("#main2").show();
+					
+				}
+			});
+		</script>
+	</body>
+</html>

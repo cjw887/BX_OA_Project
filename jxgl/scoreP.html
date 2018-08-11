@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_lltjydj35qm.css" />
+		<style>
+			* {margin: 0;padding: 0;}
+			body,html {height: 100%;background: #fafafa;/*overflow: hidden;*/}
+			.red{color:red}
+			.blue{color:#1E9FFF;}
+			.fl{float: left;}
+			.fr{float: right;}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.filtrate {
+				width: 100%;
+				margin: 40px auto;
+			}
+			
+			#main1 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto 0;
+				/*overflow-y: scroll;*/
+			}
+			
+			button i {
+				margin: 0 10px;
+			}
+			
+			.layui-table,
+			.layui-table-view {
+				margin: 0;
+			}
+			
+			.layui-table tbody tr:hover {
+				background-color: transparent
+			}
+			.layui-form-item{
+				clear: none;
+			}
+			.layui-form-checkbox[lay-skin=primary]{
+				width:110px
+			}
+			.layui-form-checkbox[lay-skin=primary] span{
+				padding-right: 15px;
+				padding-left: 15px;
+			}
+			.layui-form-checkbox[lay-skin=primary] i{
+				left:28px;
+			}
+			
+			.totle {
+				height: 50px;
+				border: 1px solid #ddd;
+			}
+			
+			.totle span {
+				line-height: 50px;
+				float: right;
+				margin-right: 20px;
+			}
+			
+			.btn {
+				width: 26%;
+				margin: 40px auto 0;
+			}
+			
+			.tip1{
+				text-align: center;
+			    margin-top: 10px;
+    			font-size: 16px;
+			}
+			.cont-input{
+				width:80px;
+				margin: 10px;
+			}
+			.cont-main{
+				/*width: %;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>打分者维护
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont">
+				<div class="layui-form filtrate">
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">部门</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">部门1</option>
+								<option value="1">部门1</option>
+								<option value="2">部门1</option>
+								<option value="3">部门1</option>
+								<option value="4">部门1</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">姓名</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">李XXX</option>
+								<option value="1">李XXX</option>
+								<option value="2">李XXX</option>
+								<option value="3">李XXX</option>
+								<option value="4">李XXX</option>
+							</select>
+						</div>
+					</div>
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal" style="margin-bottom: 15px;margin-right: 70px;float: right;"><i class="iconfont icon-shousuo1"></i>搜索</button>
+				</div>
+
+				<div id="main1" class="layui-form">
+					<div class="layui-form-item fl">
+						<label class="layui-form-label">姓名</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">李XXX</option>
+								<option value="1">李XXX</option>
+								<option value="2">李XXX</option>
+								<option value="3">李XXX</option>
+								<option value="4">李XXX</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-form-item  fr">
+						<label class="layui-form-label">科室</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">科室1</option>
+								<option value="1">科室1</option>
+								<option value="2">科室1</option>
+								<option value="3">科室1</option>
+								<option value="4">科室1</option>
+							</select>
+						</div>
+					</div>
+					<div class="layui-clear"></div>
+					<div class="layui-block">
+						<div class="layui-form-item layui-inline fl adddfz" style="position: relative;">
+							<label class="layui-form-label">打分者</label>
+							<div class="layui-input-inline">
+								<input type="text" class="layui-input" id="dfz">
+							</div>
+							<i class="iconfont icon-add" style="position: absolute;right: 20px;top: 11px;"></i>
+						</div>
+						<div class="layui-form-item layui-inline fr addbdfz" style="position: relative;">
+							<label class="layui-form-label">被打分者</label>
+							<div class="layui-input-inline">
+								<input type="text" class="layui-input" id="bdfz">
+								
+							</div>
+							<i class="iconfont icon-add" style="position: absolute;right: 20px;top: 11px;"></i>
+						</div>
+						<div class="layui-clear"></div>
+					</div>
+				</div>
+				<div class="btn">
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal BC" style="margin-bottom: 15px;margin-left: 45px;">保存</button>
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal BACK" style="margin-bottom: 15px;margin-left: 45px;background: #c2c2c2;">返回</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate = layui.laydate;
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#time1' //指定元素
+			});
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+			form.render();
+			var cont='<div  class="layui-form cont-main">'+
+					'<div class="layui-form-item fl">'+
+						'<label class="layui-form-label">科室</label>'+
+						'<div class="layui-input-inline">'+
+							'<select name="city" lay-verify="required">'+
+								'<option value=""></option>'+
+								'<option value="0">科室</option>'+
+								'<option value="1">科室</option>'+
+								'<option value="2">科室</option>'+
+								'<option value="3">科室</option>'+
+								'<option value="4">科室</option>'+
+							'</select>'+
+						'</div>'+
+					'</div>'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'<input type="checkbox" name="" title="管理员" lay-skin="primary" class="cont-input">'+
+					'</div>';
+			$(".adddfz").click(function(){
+				var index=layer.confirm(cont, 
+				{
+					btn: ['确定', '取消'], //按钮
+					title: ['添加打分者', 'font-size:16px;background:#1E9FFF;color:#fff;']
+				}, function() {
+					layer.msg('保存成功');
+				}, function() {
+					layer.msg('请重新打分');
+				});
+				layer.style(index, {
+				  width: '380px',
+				  height:"270px"
+				});  
+				form.render();
+			});
+			$(".addbdfz").click(function(){
+				var index=layer.confirm(cont, 
+				{
+					btn: ['确定', '取消'], //按钮
+					title: ['添加被打分者', 'font-size:16px;background:#1E9FFF;color:#fff;']
+				}, function() {
+					layer.msg('保存成功');
+				}, function() {
+					layer.msg('请重新打分');
+				});
+				layer.style(index, {
+				  width: '380px',
+				  height:"270px"
+				});  
+				form.render();
+			});
+			
+			
+			$(window).resize(function() {});
+		});
+	</script>
+
+</html>

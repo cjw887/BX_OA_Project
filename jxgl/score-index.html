@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_4236qxyylmj.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				/*overflow: hidden;*/
+			}
+			
+			.red {
+				color: red
+			}
+			
+			.blue {
+				color: #1E9FFF;
+			}
+			
+			.fl {
+				float: left;
+			}
+			
+			.fr {
+				float: right;
+			}
+			.trans{
+				background: transparent;
+			}
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.my-cont-left {
+				height: 100%;
+				padding: 20px;
+			}
+			
+			.my-cont-right {
+				height: 100%;
+				margin: 20px;
+			}
+			
+			.line {
+				height: 100%;
+				border: 1px solid #ddd;
+				position: absolute;
+			}
+			
+			.layui-nav {
+				background: #fff;
+			}
+			
+			.layui-nav .layui-nav-mored,
+			.layui-nav-itemed>a .layui-nav-more {
+				border-color: transparent transparent #7d7d7d;
+			}
+			
+			.layui-nav .layui-nav-more {
+				border-top-color: #7d7d7d;
+			}
+			
+			.layui-nav-tree .layui-nav-item {
+				background: #f6f6f4;
+				margin-bottom: 15px;
+				border-radius: 5px;
+				color: #7d7d7d;
+			}
+			
+			.layui-nav .layui-nav-item a {
+				color: #a3a596;
+			}
+			
+			.layui-nav-tree .layui-nav-item a:hover {
+				background: transparent;
+				color: #a3a596;
+			}
+			
+			.layui-nav-tree .layui-nav-bar {
+				width: 0;
+				/*background:transparent;*/
+			}
+			
+			.layui-nav-itemed>.layui-nav-child {
+				background: #fff !important;
+			}
+			
+			.layui-nav-tree .layui-nav-child a {
+				color: #a3a596;
+				text-indent: 40px;
+			}
+			
+			.layui-nav-tree .layui-nav-child,
+			.layui-nav-tree .layui-nav-child a:hover {
+				color: #a3a596;
+			}
+			
+			.layui-nav-itemed>a,
+			.layui-nav-tree .layui-nav-title a,
+			.layui-nav-tree .layui-nav-title a:hover {
+				color: #a3a596 !important;
+			}
+			
+			.layui-nav-tree .layui-nav-child dd.layui-this,
+			.layui-nav-tree .layui-nav-child dd.layui-this a,
+			.layui-nav-tree .layui-this,
+			.layui-nav-tree .layui-this>a,
+			.layui-nav-tree .layui-this>a:hover {
+				background: transparent;
+				color: #a3a596;
+			}
+			.layui-table,
+			.layui-table-view {
+				margin: 0;
+			}
+			i{
+				margin:10px;
+				font-size: 12px;
+			}
+			.layui-btn-sm i{
+				    font-size: 12px!important;
+			}
+			.icon-zhishi {
+				padding-right: 10px;
+				font-size: 12px;
+			}
+			.zj-bj{
+				color:#ff9000;
+			}
+			.zj-del{
+				color:#aaaaaa;
+			}
+			.listR{
+				margin-top:10px;
+				overflow-x: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>打分者维护
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont" id="my-cont">
+				<div class="my-cont-left fl">
+					<ul class="layui-nav layui-nav-tree" lay-filter="test" lay-shrink="all">
+						<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+						<li class="layui-nav-item layui-nav-itemed">
+							<a href="javascript:;"><i class="iconfont icon-zhishi"></i>管理科室负责人</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">德</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">政治品德</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">职业道德</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">能</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">勤</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">绩</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">廉</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;"><i class="iconfont icon-zhishi"></i>技术科室负责人</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">德</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">政治品德</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">职业道德</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">能</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">勤</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">绩</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">廉</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;"><i class="iconfont icon-zhishi"></i>管理岗人员</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">德</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">政治品德</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">职业道德</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">能</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">勤</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">绩</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">廉</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:;"><i class="iconfont icon-zhishi"></i>技术岗人员</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">德</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">政治品德</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">职业道德</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">能</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">勤</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">绩</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+								<dd>
+									<a href="javascript:;" style="text-indent: 20px;">廉</a>
+									<dl class="layui-nav-child">
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+										<dd>
+											<a href="javascript:;">XX</a>
+										</dd>
+									</dl>
+								</dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="line"></div>
+				<div class="my-cont-right fr">
+					<button class="layui-btn layui-btn-sm layui-btn-radius"><i class="iconfont icon-iconjia"></i>新增</button>
+					<div class="layui-form listR">
+						<table class="layui-table">
+							<colgroup>
+								<col width="150">
+								<col width="200">
+								<col>
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>年度</th>
+									<th>季度</th>
+									<th>科室部门</th>
+									<th>姓名</th>
+									<th>季度工作计划</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>2018</td>
+									<td>3</td>
+									<td>信息化室</td>
+									<td>李XXX</td>
+									<td>季度工作计划季度工作计划季度工作计划季度工作计划</td>
+									<td>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-bj"><i class="iconfont icon-bianjix"></i>编辑</button>
+										<button class="layui-btn layui-btn-sm layui-btn-radius trans zj-del"><i class="iconfont icon-shanchu"></i>删除</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate', 'element'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var element = layui.element;
+
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+			$(".my-cont-right").css({
+				"width": $(".my-cont").width() - $(".my-cont-left").width() - 82 + "px",
+			});
+			$(".line").css({
+				"left": $(".my-cont-left").width() + 40 + "px",
+			});
+//			if($(window).height() < 800) {
+//				$(".listR").css({"overflow-y":"scroll","height":"490px"})
+//			}
+			form.render();
+			//监听导航点击
+			element.on('nav(demo)', function(elem) {
+				//console.log(elem)
+				layer.msg(elem.text());
+			});
+			$(window).resize(function() {
+				$(".my-cont-right").css({
+				"width": $(".my-cont").width() - $(".my-cont-left").width() - 82 + "px",
+				});
+				$(".line").css({
+					"left": $(".my-cont-left").width() + 40 + "px",
+				});
+				form.render();
+			});
+		});
+	</script>
+
+</html>

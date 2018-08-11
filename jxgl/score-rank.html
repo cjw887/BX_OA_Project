@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				/*overflow: hidden;*/
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}
+			
+			.my-cont {
+				width: 96%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+			}
+			
+			.my-cont .btn {
+				width: 180px;
+				height: 30px;
+				border-radius: 15px;
+				background: #e8e8e8;
+				color: #747474;
+				margin: 20px auto;
+			}
+			
+			.my-cont .btn li {
+				width: 90px;
+				height: 30px;
+				float: left;
+				text-align: center;
+				line-height: 30px;
+				color: #666;
+			}
+			
+			.my-cont .btn li.on {
+				color: #ffffff;
+				border-radius: 15px;
+				background: #1E9FFF;
+			}
+			
+			.filtrate {
+				width: 70%;
+				margin: 40px auto;
+			}
+			
+			#main1 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+			}
+			
+			#main2 {
+				width: 80%;
+				/*height:500px;*/
+				margin: 40px auto;
+				display: none;
+			}
+			
+			button i {
+				margin: 0 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>分数排名与统计
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont">
+				<ul class="btn">
+					<li class="btn1  on">排名</li>
+					<li class="btn2">统计</li>
+				</ul>
+				<div class="layui-form filtrate">
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">时间</label>
+						<div class="layui-input-inline">
+							<input type="text" class="layui-input" id="time1">
+						</div>
+					</div>
+					<div class="layui-form-item layui-inline">
+						<label class="layui-form-label">部门</label>
+						<div class="layui-input-inline">
+							<select name="city" lay-verify="required">
+								<option value=""></option>
+								<option value="0">部门1</option>
+								<option value="1">部门1</option>
+								<option value="2">部门1</option>
+								<option value="3">部门1</option>
+								<option value="4">部门1</option>
+							</select>
+						</div>
+					</div>
+					<button class="layui-btn layui-inline layui-btn-radius layui-btn-normal" style="margin-bottom: 15px;margin-right: 70px;float: right;"><i class="iconfont icon-shousuo1"></i>搜索</button>
+				</div>
+
+				<div id="main1">
+					<table class="layui-table">
+					<colgroup>
+					    <col width="150">
+					    <col width="200">
+					    <col>
+					</colgroup>
+					<thead>
+					    <tr>
+					      <th>排名</th>
+					      <th>姓名</th>
+					      <th>时间</th>
+					      <th>部门</th>
+					      <th>得分</th>
+					      <th>平均分</th>
+					    </tr> 
+					</thead>
+					<tbody>
+					    <tr>
+					       <td>1</td>
+					       <td>李某某</td>
+					       <td>2018</td>
+					       <td>科室</td>
+					       <td>90</td>
+					       <td>86.5</td>
+					    </tr>
+					    <tr>
+					       <td>2</td>
+					       <td>李某某</td>
+					       <td>2018</td>
+					       <td>科室</td>
+					       <td>90</td>
+					       <td>86.5</td>
+					    </tr>
+					    <tr>
+					       <td>3</td>
+					       <td>李某某</td>
+					       <td>2018</td>
+					       <td>科室</td>
+					       <td>96</td>
+					       <td>87.5</td>
+					    </tr>
+					    <tr>
+					       <td>4</td>
+					      <td>李某某</td>
+					       <td>2018</td>
+					       <td>科室</td>
+					       <td>94</td>
+					       <td>86.1</td>
+					    </tr>
+					    <tr>
+					       <td>5</td>
+					       <td>李某某</td>
+					       <td>2018</td>
+					       <td>科室</td>
+					       <td>94</td>
+					       <td>83.5</td>
+					    </tr>
+					</tbody>
+				</table>
+				</div>
+				<div id="main2"></div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<script>
+		layui.use(['jquery', 'form', 'table', 'laydate'], function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var table = layui.table;
+			var laydate = layui.laydate;
+
+			//执行一个laydate实例
+			laydate.render({
+				elem: '#time1' //指定元素
+			});
+			$(".my-cont").css({
+				"height": $(window).height() - $(".title-cont").height() - 10 - 2 + "px",
+				"top": $(".title-cont").height() + 10 + 2 + "px"
+			});
+			$("#main1").css({
+				"height": $(window).height() -$(".filtrate").height()- 270 + "px"
+			});
+			$("#main2").css({
+				"height": $(window).height() -$(".filtrate").height()- 270 + "px"
+			});
+			form.render();
+			 
+			var myChart = echarts.init(document.getElementById('main2'));
+			myChart.setOption({
+				color: ['#1E9FFF'],
+				tooltip: {
+					trigger: 'axis',
+					axisPointer: { // 坐标轴指示器，坐标轴触发有效
+						type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+					}
+				},
+				grid: {
+					left: '3%',
+					right: '4%',
+					bottom: '3%',
+					containLabel: true
+				},
+				xAxis: [{
+					name: "分数",
+					type: 'category',
+					data: ['0-60', '60-80', '80-100'],
+					axisTick: {
+						alignWithLabel: true
+					}
+				}],
+				yAxis: [{
+					name: "人数",
+					type: 'value'
+				}],
+				series: [{
+					name: '直接访问',
+					type: 'bar',
+					barWidth: '60%',
+					data: [10, 52, 200]
+				}]
+			});
+
+			$(".btn").on("click", "li", function() {
+				$(this).addClass("on").siblings().removeClass("on");
+				if($(this).html() == "排名") {
+					$("#main1").show();
+					$("#main2").hide();
+				}
+				if($(this).html() == "统计") {
+					$("#main1").hide();
+					$("#main2").show();
+					myChart.resize()
+				}
+			});
+
+			$(window).resize(function() {
+				myChart.resize()
+			});
+		});
+	</script>
+
+</html>

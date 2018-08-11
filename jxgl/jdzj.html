@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>季度总结</title>
+		<script type="text/javascript" src="layui/layui.all.js"></script>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<link rel="stylesheet" href="layui/css/layui.css" />
+		<link rel="stylesheet" href="http://at.alicdn.com/t/font_730488_hnwb4h17afq.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #fafafa;
+				overflow: hidden;
+			}
+			
+			.my-box {
+				width: 100%;
+				height: 100%;
+				margin: 0 auto;
+				background: #fafafa;
+			}
+			
+			.title-cont {
+				width: 96%;
+				height: 50px;
+				top: 10px;
+				left: 2%;
+				background: #fff;
+				border-bottom: 2px solid #ddd;
+				position: absolute;
+				border-radius: 10px 10px 0 0;
+			}
+			
+			.title-cont .title {
+				display: inline-block;
+				border-bottom: 2px solid #ff7711;
+				font-size: 22px;
+				line-height: 49px;
+				color: #333333;
+				padding-right: 16px;
+			}
+			
+			.title-cont .title i {
+				font-size: 22px;
+				color: #ff7711;
+				margin: 0 20px;
+			}						
+			
+			.my-cont {
+				width: 92%;
+				left: 2%;
+				position: absolute;
+				background: #fff;
+				margin-top: 64px;
+				padding: 2%;
+			}
+			button i {
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="my-box">
+			<div class="title-cont">
+				<div class="title">
+					<i class="iconfont icon-renwu"></i>季度总结
+				</div>
+			</div>
+			<div class="layui-clear"></div>
+			<div class="my-cont">
+				<a href="jdzj_add.html"><button class="layui-btn layui-btn-sm layui-btn-radius"><i class="layui-icon">&#xe654;</i>新增</button></a>
+				<table class="layui-table">
+					<colgroup>
+					    <col width="150">
+					    <col width="200">
+					    <col>
+					</colgroup>
+					<thead>
+					    <tr>
+					      <th></th>
+					      <th>年度</th>
+					      <th>季度</th>
+					      <th>科室部门</th>
+					      <th>姓名</th>
+					      <th>季度工作计划</th>
+					      <th>操作</th>
+					    </tr> 
+					</thead>
+					<tbody>
+					    <tr>
+					       <td>1</td>
+					       <td>2018</td>
+					       <td>3</td>
+					       <td>化学室</td>
+					       <td>admin</td>
+					       <td>2018-07-20</td>
+					       <td>季度工作计划内容</td>
+					       <td>查看详情</td>
+					    </tr>
+					    <tr>
+					       <td>2</td>
+					        <td>2018</td>
+					       <td>3</td>
+					       <td>化学室</td>
+					       <td>admin</td>
+					       <td>2018-07-20</td>
+					       <td>季度工作计划内容</td>
+					       <td>查看详情</td>
+					    </tr>
+					    <tr>
+					       <td>3</td>
+					       <td>2018</td>
+					       <td>3</td>
+					       <td>化学室</td>
+					       <td>admin</td>
+					       <td>2018-07-20</td>
+					       <td>季度工作计划内容</td>
+					       <td>查看详情</td>
+					    </tr>
+					    <tr>
+					       <td>4</td>
+					        <td>2018</td>
+					       <td>3</td>
+					       <td>化学室</td>
+					       <td>admin</td>
+					       <td>2018-07-20</td>
+					       <td>季度工作计划内容</td>
+					       <td>查看详情</td>
+					    </tr>
+					    <tr>
+					       <td>5</td>
+					        <td>2018</td>
+					       <td>3</td>
+					       <td>化学室</td>
+					       <td>admin</td>
+					       <td>2018-07-20</td>
+					       <td>季度工作计划内容</td>
+					       <td>查看详情</td>
+					    </tr>
+					</tbody>
+				</table>
+			</div>
+		</div>	
+	</body>
+</html>
